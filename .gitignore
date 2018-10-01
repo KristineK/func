@@ -1,0 +1,27 @@
+# Mac OS
+# -----------------
+
+.DS_Store
+
+# File Types
+# -----------------
+
+*.css
+*.log-*
+*.zip
+*.iml
+*.sublime-*
+*.log.*
+*.info
+*.idea
+*.vagrant
+/.vscode
+/.project
+bundle*
+
+# Target
+# -----------------
+
+target/
+allure-results/
+dist/
