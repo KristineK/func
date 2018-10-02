@@ -12,10 +12,6 @@ import java.io.IOException;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-<<<<<<<HEAD
-        =======
-        >>>>>>>17089e7118087ab43d7ac40951db9e9c1eaec34c
-
 public class Search {
     public String pageURL;
     protected WebDriver driver;
