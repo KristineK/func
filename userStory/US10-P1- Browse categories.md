@@ -49,7 +49,7 @@ Automated: no
 1. Open browse page for specific category
 2. All products for the selected category are seen
 3. All products can be sorted and 
-4. Pagination is available if there is more then 9 items per category
+4. Pagination is available if there is more then 15 items per category
 5. Each product can be added to wish list, for comparison and to card 
 
 Automated: no
@@ -62,7 +62,7 @@ Automated: no
 
 **Expected:** Category is not seen ('Search' instead of category)
 
-### Bug US10-B02: no pagination on browse page
+### Bug US10-B02: no pagination on browse page - FIXED
 **Steps:** open a category in browse page with more then 10 products (http://demoshop24.com/index.php?route=product/category&path=20)
 
 **Actual:** No pagination is seen and only 9 items are displayed, instead of 10
