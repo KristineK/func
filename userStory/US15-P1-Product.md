@@ -58,5 +58,7 @@ Automated: no
 ## Bugs
 ### Bug US15-B01: User can add a review without purchase of the product
 **Steps:** Execute scenario US15-T04
+
 **Expected:** error is seen
+
 **Actual:** error is not seen, successful message is seen

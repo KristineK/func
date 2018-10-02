@@ -32,14 +32,39 @@ Automated: no
 
 Automated: no
 
-### Scenario US10-T03: Categories are seen
+### Scenario US10-T03: Sub-categories are seen under categories 
 1. Open any page
-2. Click in menu on any 
+2. Click in menu on any category which was sub-category
+3. See that all sub-categories for this category is seen with correct number of products available  
+
+Automated: no
+
+### Scenario US10-T04: Categories are see on browse page
+1. Open browse page
+2. See that all categories are see on left side of the page
+
+Automated: no
+
+### Scenario US10-T05: Products for specific category is seen in browse page
+1. Open browse page for specific category
+2. All products for the selected category are seen
+3. All products can be sorted and 
+4. Pagination is available if there is more then 9 items per category
+5. Each product can be added to wish list, for comparison and to card 
 
 Automated: no
 
 ## Bugs
-### Bug US10-B01:
+### Bug US10-B01: incorrect category for one of the products
 **Steps:** open product http://demoshop24.com/index.php?route=product/product&search=Space%20Tab%2010.1&product_id=49
+
 **Actual:** Category is seen (Tablet?)
+
 **Expected:** Category is not seen ('Search' instead of category)
+
+### Bug US10-B02: no pagination on browse page
+**Steps:** open a category in browse page with more then 10 products (http://demoshop24.com/index.php?route=product/category&path=20)
+
+**Actual:** No pagination is seen and only 9 items are displayed, instead of 10
+
+**Expected:** Pagination for 10 items is seen
