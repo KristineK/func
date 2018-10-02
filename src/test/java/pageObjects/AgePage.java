@@ -1,6 +1,7 @@
 package pageObjects;
 
 import helpers.Driver;
+import io.qameta.allure.Step;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,17 +26,19 @@ public class AgePage {
     private WebElement message;
 
     public AgePage() throws Exception {
-        pageURL = System.getProperty("homePageUrl") + "/site/examples/age";
+        pageURL = System.getProperty("baseUrl") + "/site/examples/age";
     }
 
     public void setDriver(WebDriver driverValue) {
         driver = driverValue;
     }
 
+    @Step("Open age page")
     public void openAgeUrl() throws IOException {
         driver.get(pageURL);
     }
 
+    @Step("Verify enter name: {0} and age: {1}")
     public void enterNameAndAgeAndSubmit(@NotNull String nameValue, @NotNull String ageValue) {
         name.clear();
         name.sendKeys(nameValue);
@@ -44,6 +47,7 @@ public class AgePage {
         submitButton.click();
     }
 
+    @Step("Verify test message: {0}")
     public void checkMessageText(@NotNull String messageText) {
         assertThat(message.getText()).isEqualToIgnoringCase(messageText);
     }
