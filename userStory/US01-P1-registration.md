@@ -22,7 +22,7 @@ After registration user is able to login into the system.
 Information from registration should be the same in account page
 
 ## Tests
-### Scenario US01-T01: Add a product from product page to cart
+### Scenario US01-T01: Verify User are Register 
 1. Open registration page (e.g. http://demoshop24.com/index.php?route=account/register)
 2. Fill all registration fields
 3. Agree Private Policy 
@@ -38,7 +38,7 @@ Automated: yes
 
 Automated: yes
 
-### Scenario US01-T03: Check Radio button subscribe by default is "No"
+### Scenario US01-T03: Verify phone number validation
 1. Open registration page (e.g. http://demoshop24.com/index.php?route=account/register)
 2. Fill all registration fields
 3. Add 3 numbers in phone input field
@@ -47,9 +47,67 @@ Automated: yes
 
 Automated: No
 
+### Scenario US01-T04: Information from registration are the same in account page
+1. Open registration page (e.g. http://demoshop24.com/index.php?route=account/register)
+2. Fill all registration fields
+4. Agree Private Policy 
+5. Click continue button
+6. Click My Account
+7. Click Edit account
+8. Verify account information
+
+Automated: Yes
+
+### Scenario US01-T05: After registration user are successful login
+1. Open registration page (e.g. http://demoshop24.com/index.php?route=account/register)
+2. Fill all registration fields
+4. Agree Private Policy 
+5. Click continue button
+6. See congratulations message
+7. Click Log Out
+8. See Log out message
+9. Click Sign in
+10. Fill email and password filds
+11. See Log in message
+
+Automated: Yes
+
+### Scenario US01-T05: Information from registration are the same in account page
+1. Open registration page (e.g. http://demoshop24.com/index.php?route=account/register)
+2. Fill all registration fields
+4. Agree Private Policy 
+5. Click continue button
+6. Click My Account
+7. Click Edit account
+8. Verify account information
+
+Automated: Yes
+
+### Scenario US01-T06: Verify email validation
+1. Open registration page (e.g. http://demoshop24.com/index.php?route=account/register)
+2. Fill registration fields
+3. Enter "email"
+4. Agree Private Policy 
+5. Click continue button
+6. Verify email validation error message are present
+
+Automated: No
+
+### Scenario US01-T07: Verify phone validation
+1. Open registration page (e.g. http://demoshop24.com/index.php?route=account/register)
+2. Fill registration fields
+3. In Phone field enter letter  "aaaaa"
+4. Agree Private Policy 
+5. Click continue button
+6. Verify phone validation error message are present
+
+Automated: No
+
+
 ### Bug US05-B01: Validation for phone number not working correct
-**Steps:** Execute scenario US01-T03
+**Steps:** Execute scenario US01-T03, US01-T06
 
 **Expected:** User see phone validation error message
 
 **Actual:** error is not seen and user are successful registered
+
