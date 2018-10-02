@@ -44,7 +44,10 @@ public class CheckoutPage {
     private WebElement guestCheckBox;
     @FindBy(how = How.XPATH, using = "//input[@name= 'agree']")
     private WebElement agreeCheckBox;
-
+    @FindBy(how = How.XPATH, using = "//input[@id= 'input-payment-zone']")
+    private WebElement paymentZone;
+    @FindBy(how = How.XPATH, using = "//select[@id= 'input-payment-zone']/option[2]")
+    private WebElement paymentZoneCity;
 
 
     public CheckoutPage() throws Exception {
@@ -92,7 +95,7 @@ public class CheckoutPage {
         phoneNumber.sendKeys("+37122222222");
         adress1.sendKeys("Some street 22");
         city.sendKeys("Riga");
-        driver.findElement(By.xpath("//*[@id=\"input-payment-zone\"]")).click();
+        paymentZone.click();
         driver.findElement(By.xpath("//*[@id=\"input-payment-zone\"]/option[129]")).click();
         continueButtonForGuest.click();
     }
