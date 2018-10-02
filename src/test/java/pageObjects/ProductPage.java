@@ -109,6 +109,6 @@ public class ProductPage {
         assertThat(reviewTab.isDisplayed()).isTrue();
         assertThat(addToCard.isDisplayed()).isTrue();
         assertThat(name.getText()).isEqualTo(productName);
-        assertThat(price.getText()).isEqualTo(productPrice);
+        assertThat(price.getText()).startsWith(productPrice);
     }
 }

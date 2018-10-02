@@ -48,6 +48,6 @@ public class ProductTest {
     public static void userCanSeeProductData() throws Exception {
         String productName = "BakBook";
         productPage.openProductPage(productName);
-        productPage.userCanSeeProductNamePriceImageAndSpecification(productName, "500.00€");
+        productPage.userCanSeeProductNamePriceImageAndSpecification(productName, "500.00");
     }
 }
