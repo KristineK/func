@@ -62,3 +62,31 @@ Automated: no
 **Expected:** error is seen
 
 **Actual:** error is not seen, successful message is seen
+
+
+### Bug US15-B02: Product Breadcrumb navigation shows sequence which user used to open this product
+**Steps:** 
+1) Open homepage and on featured product list click on "opa-Phone"
+2) Breadcrumb navigation Shows homepage logo and String "opa-Phone"
+
+Excpected result: Contain full breadcrumb navigation for product.
+Actual result: Showing breandcrumb navigation which user used.
+
+![Bug 1.1](Images/US15_Bug_1.PNG?raw=true "full path")
+
+![Bug 1.2](Images/US15_Bug_2.PNG?raw=true "navigated from search")
+
+![Bug 1.3](Images/US15_Bug_3.PNG?raw=true "navigated from homepage")
+
+
+
+### Bug US15-B02: Product "Space tab 10.1" with out specification
+**Steps:** 
+1) Open homepage and input in search box "Space tab" and click search
+2) Click on "Space Tab 10.1" item
+3) See that between "Description" and "Reviews" is no "Specification"
+
+Excpected result: Specification present for product
+Actual result: Product with out specification.
+
+![Bug 2.1](Images/US15_Bug_4.PNG?raw=true "Space tab with out specification")

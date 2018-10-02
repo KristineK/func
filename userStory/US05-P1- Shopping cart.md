@@ -85,3 +85,16 @@ Automated: no
 
 **Actual:** error is not seen and product is successfully added to the card
 
+
+### Bug US05-B04: No additional check for the field
+**Steps:** 
+1) Add 1st item from feature items to your cart
+
+2) Add 3rd item from feature items to your cart
+
+3) After you are navigated to 3rd item's product page , click navigate back button in browser
+           
+
+**Actual:** Shows 0 items in cart
+
+**Expected:** 1 item in cart
