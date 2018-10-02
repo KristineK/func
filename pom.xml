@@ -76,9 +76,9 @@
                     <version>2.18.1</version>
                     <configuration>
                         <testFailureIgnore>true</testFailureIgnore>
-                        <argLine>
-                             -javaagent:"${settings.localRepository}\org\aspectj\aspectjweaver\${aspectj.version}\aspectjweaver-${aspectj.version}.jar"
-                        </argLine>
+                        <!--<argLine>-->
+                             <!-- -javaagent:"${settings.localRepository}\org\aspectj\aspectjweaver\${aspectj.version}\aspectjweaver-${aspectj.version}.jar"-->
+                        <!--</argLine>-->
                         <systemPropertyVariables>
                             <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
                         </systemPropertyVariables>
