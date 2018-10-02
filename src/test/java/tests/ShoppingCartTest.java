@@ -1,12 +1,12 @@
 package tests;
-;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-
 import pageObjects.ShoppingCart;
 
-
 import static helpers.Driver.getDriver;
+
+;
 
 public class ShoppingCartTest {
 
@@ -18,8 +18,6 @@ public class ShoppingCartTest {
         shoppingCart = PageFactory.initElements(driver, ShoppingCart.class);
         shoppingCart.setDriver(driver);
     }
-
-
 
 
 }

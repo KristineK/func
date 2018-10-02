@@ -12,7 +12,7 @@ import pageObjects.Search;
 
 import static helpers.Driver.getDriver;
 
-@Epic("Searching")
+@Feature("Searching Test")
 @Listeners({TestListener.class})
 
 public class SearchTest {

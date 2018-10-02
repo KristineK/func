@@ -3,16 +3,16 @@ package tests;
 
 import helpers.TestListener;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjects.CheckoutPage;
-import pageObjects.Search;
 
 import static helpers.Driver.getDriver;
 
-@Epic("Searching")
+@Feature("Checkout Test")
 @Listeners({TestListener.class})
 
 public class CheckoutTest {

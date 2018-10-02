@@ -49,7 +49,6 @@ public class CheckoutPage {
     @FindBy(how = How.XPATH, using = "//select[@id= 'input-payment-zone']/option[2]")
     private WebElement paymentZoneCity;
 
-
     public CheckoutPage() throws Exception {
         pageURL = System.getProperty("baseUrl") + "/index.php?route=checkout/cart";
     }

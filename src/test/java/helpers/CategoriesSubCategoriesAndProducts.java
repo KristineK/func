@@ -54,9 +54,11 @@ public class CategoriesSubCategoriesAndProducts {
 
         product = new HashMap();
         product.put("BakBook", 43);
-        product.put("opa-Phone", 40);;
+        product.put("opa-Phone", 40);
+        ;
         product.put("Appricot Cinema 21''", 42);
-        product.put("BP LP3065", 56);;
+        product.put("BP LP3065", 56);
+        ;
         product.put("Space Tab 10.1", 49);
     }
 
