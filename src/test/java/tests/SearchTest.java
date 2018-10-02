@@ -14,7 +14,7 @@ import static helpers.Driver.getDriver;
 
 @Epic("Searching")
 @Feature("Feature 1")
-@Listeners({ TestListener.class })
+@Listeners({TestListener.class})
 
 public class SearchTest {
 
@@ -59,13 +59,15 @@ public class SearchTest {
 
     }
 
-    @Test(description = "Validate search bar works from monitor section", priority = 1)
+    @Test(description = "Validate Search for monitors and subcategories", priority = 1)
     @Description("Test Description: Search bar should be displayed at monitor section and work properly.")
     public static void testSearchBarMonitorSection() throws Exception {
         search.openHomePage();
-        search.navigateTo("index.php?route=product/category&path=18_46");
+        search.navigateTo("/index.php?route=product/category&path=18_46");
         search.validateSearchBarIsDisplayed();
-        search.searchInformation("monir");
-        search.validateSearchResults("Phone");
+        search.searchInformation("moni");
+        search.clickSubCategoriesCheckBox();
+        search.subCategorySelection("test1");
+
     }
 }

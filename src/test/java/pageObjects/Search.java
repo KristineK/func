@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import javax.swing.text.html.CSS;
@@ -28,7 +29,10 @@ public class Search {
     private WebElement primarySearchButton;
     @FindBy(how = How.ID, using = "input-search")
     private WebElement criteriaSearchBox;
-
+    @FindBy(how = How.CLASS_NAME, using = "form-control")
+    private WebElement categoriesSection;
+    @FindBy(how = How.NAME, using = "sub_category")
+    private WebElement subCategoryCheckBox;
 
 
     public Search() throws Exception {
@@ -58,20 +62,20 @@ public class Search {
     }
 
     @Step("Search this: {0} in Search Criteria section")
-    public void searchInformationInCriteriaSection(String searchedInformation){
+    public void searchInformationInCriteriaSection(String searchedInformation) {
         criteriaSearchBox.clear();
         criteriaSearchBox.sendKeys(searchedInformation);
         primarySearchButton.click();
     }
 
     @Step("Validate search results contain: {0}")
-    public void validateSearchResults(@NotNull String searchedString){
-        String firstSearchResult =  driver.findElement(By.xpath("//*[@id=\"content\"]/div[3]/div/div/div[2]/div[1]/h4/a")).getText();
+    public void validateSearchResults(@NotNull String searchedString) {
+        String firstSearchResult = driver.findElement(By.xpath("//*[@id=\"content\"]/div[3]/div/div/div[2]/div[1]/h4/a")).getText();
         assertThat(firstSearchResult.contains(searchedString));
     }
 
     @Step("Click checkbox to search product descriptions")
-    public void clickCheckBoxToSearchProductDescriptions(){
+    public void clickCheckBoxToSearchProductDescriptions() {
         descriptionCheckBox.click();
     }
 
@@ -82,9 +86,24 @@ public class Search {
     }
 
     @Step("Product description contains searched string: {0}")
-    public void productDescriptionContainsSearchedString(@NotNull String searchedString){
-    assertThat(productGrid.getText().contains(searchedString));
+    public void productDescriptionContainsSearchedString(@NotNull String searchedString) {
+        assertThat(productGrid.getText().contains(searchedString));
     }
+
+    @Step("Select sub category: {0}")
+    public void subCategorySelection(@NotNull String subCategory) throws InterruptedException {
+        categoriesSection.click();
+        categoriesSection.
+        wait(1000);
+
+//        //*[@id="content"]/div[1]/div[2]/select/option[11]
+    }
+    @Step("Click subcategories checkbox")
+    public void clickSubCategoriesCheckBox(){
+        subCategoryCheckBox.click();
+
+    }
+
 
 
 }
