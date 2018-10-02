@@ -39,15 +39,18 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult iTestResult) {
         saveScreenshot(getDriver());
         savetextLog(getTestMethodName(iTestResult) + " failed.");
+        getDriver().manage().deleteAllCookies();
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
+        getDriver().manage().deleteAllCookies();
 
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+        getDriver().manage().deleteAllCookies();
 
     }
 
@@ -58,6 +61,6 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-
+        getDriver().manage().deleteAllCookies();
     }
 }
