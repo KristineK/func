@@ -44,7 +44,16 @@ public class RegistrationPage {
     @FindBy(how = How.CLASS_NAME, using = "caret")
     private WebElement MyAccountDropDown;
     @FindBy(how = How.XPATH, using = "//*[contains(@href, 'logout')]")
-    private WebElement LogOutBtn;
+    private WebElement logOutBtn;
+    @FindBy(how = How.XPATH, using = "//*[contains(@id, 'content')]/p[1]")
+    private WebElement logOutText;
+    @FindBy(how = How.XPATH, using = "//*[contains(@href, 'login') and (@class)]")
+    private WebElement signInBtn;
+    @FindBy(how = How.XPATH, using = "//input[@value= 'Login']")
+    private WebElement logInBtn;
+    @FindBy(how = How.XPATH, using = "//*[contains(@href, 'account/edit')]")
+    private WebElement editAccountBtn;
+
 
 
     public RegistrationPage() throws Exception {
@@ -55,59 +64,86 @@ public class RegistrationPage {
         driver = driverValue;
     }
 
-    @Step("Open registration page")
+    @Step("Open registartion page")
     public void openRegistrationUrl() throws IOException {
         driver.get(pageURL);
     }
 
     @Step("Register a user")
-    public void fillRegistartionFormAndSubmit(@NotNull String firstnameValue,
+    public void fillRegistrationFormAndSubmit(@NotNull String firstnameValue,
                                               @NotNull String lastameValue,
                                               @NotNull String telephoneValue,
-                                              @NotNull String passwordValue) {
-        Random random = new Random();
-        int x = random.nextInt(26);
-        String randomemail = "admin" + random + "asd.com";
+                                              @NotNull String passwordValue, @NotNull String emailValue) {
+
 
         firstName.sendKeys(firstnameValue);
         lastName.sendKeys(lastameValue);
-        email.sendKeys(randomemail);
+        email.sendKeys(emailValue);
         telephone.sendKeys(telephoneValue);
         password.sendKeys(passwordValue);
         confirmPassword.sendKeys(passwordValue);
     }
-
     @Step("No subscription is selected")
     public void checkNoSubscribeSelected() {
         assertThat(NoSubscribeRadioButton.isSelected()).as("No subscription isn't selected").isTrue();
         assertThat(YesSubscribeRadioButton.isSelected()).as("Yes subscription isn't selected").isFalse();
     }
-
-    @Step("Verify privacy policy text and agree: {0}")
+    @Step("Verify privacy policy text and agree")
     public void agreePrivacyPolicy(@NotNull String messageText) {
         assertThat(PrivacyPolicyAgreeText.getText().compareToIgnoreCase(messageText));
         PrivacyPolicyAgree.click();
 
     }
-
     @Step("Press Continue")
     public void pressContinueBtn() {
         ContinueBtn.click();
     }
-
     @Step("Verify user are register")
     public void verifyUserAreRegister(@NotNull String congratulationsText) {
         waitForElementPresent(CongratulationsMsgText);
         assertThat(CongratulationsMsgText.getText()).isEqualTo(congratulationsText);
     }
 
-    @Step("Log out to system")
-    public void logOut(@NotNull String congratulationsText) {
+    @Step("Log out to system and see logOut message")
+    public void logOut(@NotNull String LogOutText) {
         MyAccountDropDown.click();
-        LogOutBtn.click();
+        waitForElementPresent(logOutBtn);
+        logOutBtn.click();
+        assertThat(logOutText.getText()).isEqualTo(LogOutText);
+    }
 
+    @Step("Sing-In to system")
+    public void logIn(@NotNull String emailValue, @NotNull String passwordValue) {
+        signInBtn.click();
+        email.sendKeys(emailValue);
+        password.sendKeys(passwordValue);
+        logInBtn.click();
+    }
+    @Step("select edit account")
+    public void selectEditAccount() {
+        editAccountBtn.click();
 
     }
+    @Step("verify account details")
+    public void verifyAccountDetails(@NotNull String firstnameValue,
+                                     @NotNull String lastameValue,
+                                     @NotNull String telephoneValue,
+                                     @NotNull String emailValue) {
+
+
+        waitForElementPresent(firstName);
+        assertThat(firstName.getAttribute(firstnameValue));
+        assertThat(lastName.getAttribute(lastameValue));
+        assertThat(email.getAttribute(telephoneValue));
+        assertThat(telephone.getAttribute(emailValue));
+
+    }
+
+    @Step("verify email error message")
+    public void verifyAccountDetails() {
+        assertThat(CongratulationsMsgText.isEnabled()).isFalse();
+    }
+
 
 
 }
