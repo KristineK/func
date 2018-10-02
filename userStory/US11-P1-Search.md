@@ -55,4 +55,4 @@ Note. Not user friendly that if someone wants to search something by description
     Excpected results: Search string changes to what it was in previous pages.
     Actual result: Search string changes in base url, in searchbox of uppder side of UI, and as a heading. But dose not change in search criteria search box.
 
-    [Bug 1.](Images/US11_Bug_1.png?raw=true "")
+    [Bug 1.](Images/US11_Bug_1.PNG?raw=true "")
