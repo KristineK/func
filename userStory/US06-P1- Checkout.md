@@ -17,11 +17,13 @@ Checkout functionality should allow user to buy desired Products
 For out of stock product use product -tablet "Space Tab 10.1"
 
 
-#Tests
+## Tests
 ### Scenario US06-T01:
  
-#Bugs
+## Bugs
 ### Bug US06-B01:
-*Steps:* 
-*Actual:* 
-*Expected:*
+**Steps:** 
+
+**Actual:** 
+
+**Expected:**

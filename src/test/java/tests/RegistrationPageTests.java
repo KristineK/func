@@ -33,6 +33,7 @@ public class RegistrationPageTests {
         registrationPage.verifyUserAreRegister("Congratulations! Your new account has been successfully created!");
 
     }
+
     @Test(description = "User Registartion fields", priority = 1)
     @Description("Test Description: Check Radio button subscribe by default No")
     public static void testRadioButton() throws Exception {

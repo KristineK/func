@@ -1,6 +1,5 @@
 package pageObjects;
 
-import helpers.Driver;
 import io.qameta.allure.Step;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Random;
 
 import static helpers.Driver.waitForElementPresent;
