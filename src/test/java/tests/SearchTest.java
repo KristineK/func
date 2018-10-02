@@ -28,26 +28,26 @@ public class SearchTest {
         search.setDriver(driver);
     }
 
-    @Test(description = "Validate search bar works from homepage", priority = 1)
-    @Description("Test Description: Search bar should be displayed at homepage and work properly.")
+    @Test(description = "Validate search bar is displayed", priority = 1)
+    @Description("Test Description: Search bar should be displayed at homepage")
     public static void testSearchBarHomepage() throws Exception {
         search.openHomePage();
         search.validateSearchBarIsDisplayed();
 
     }
 
-    @Test(description = "Validate search bar works from PC section", priority = 1)
-    @Description("Test Description: Search bar should be displayed at PC section and work properly.")
+    @Test(description = "Validate short searching", priority = 1)
+    @Description("Test Description: When searching for short strings f.e. Phone, then all products which contains this String in their name should be returned")
     public static void testSearchForIphFromPCsection() throws Exception {
         search.openHomePage();
         search.navigateTo("/index.php?route=product/category&path=20_26");
         search.validateSearchBarIsDisplayed();
-        search.searchInformation("Iph");
-        search.validateSearchResults("Iphone");
+        search.searchInformation("Phone");
+        search.validateSearchResults("Phone");
     }
 
-    @Test(description = "Validate search bar works from laptop section", priority = 1)
-    @Description("Test Description: Search bar should be displayed at laptop section and work properly.")
+    @Test(description = "Validate product description search", priority = 1)
+    @Description("Test Description: Product description should be searchable and with correct products returned")
     public static void testSearchDescription() throws Exception {
         search.openHomePage();
         search.navigateTo("/index.php?route=product/category&path=18_46");
@@ -59,15 +59,4 @@ public class SearchTest {
 
     }
 
-    @Test(description = "Validate Search for monitors and subcategories", priority = 1)
-    @Description("Test Description: Search bar should be displayed at monitor section and work properly.")
-    public static void testSearchBarMonitorSection() throws Exception {
-        search.openHomePage();
-        search.navigateTo("/index.php?route=product/category&path=18_46");
-        search.validateSearchBarIsDisplayed();
-        search.searchInformation("moni");
-        search.clickSubCategoriesCheckBox();
-        search.subCategorySelection("test1");
-
-    }
 }
