@@ -10,4 +10,4 @@ Maven sample (for reports):
 Note: report are see only in FF, not in chrome
 
 # Tests and Bug
-Test and bug are in the folder [userStory]((../master/userStory) for each story.
+Test and bug are in the folder [userStory](../master/userStory) for each story.
