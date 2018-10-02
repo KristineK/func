@@ -11,6 +11,9 @@ import org.openqa.selenium.support.How;
 import java.io.IOException;
 import java.util.List;
 
+import static helpers.Driver.waitForElementPresent;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 public class ProductPage {
     public String pageURL;
     protected WebDriver driver;
@@ -35,7 +38,7 @@ public class ProductPage {
     @FindBy(how = How.ID, using = "button-review")
     private WebElement reviewSubmit;
     @FindBy(how = How.CLASS_NAME, using = "alert-success")
-    private WebElement reviewMessage;
+    private WebElement successMessage;
     @FindBy(how = How.XPATH, using = "//*[@class=\"fa fa-exchange\"]/..")
     private WebElement compare;
     @FindBy(how = How.ID, using = "button-cart")
@@ -67,5 +70,45 @@ public class ProductPage {
     @Step("Add a product to the card")
     public void addProductToTheCard() throws IOException {
         addToCard.click();
+    }
+
+    @Step("Write review for product")
+    public void writeReviewForProduct(@NotNull String name, @NotNull String comment, int score) throws IOException {
+        reviewTab.click();
+        reviewName.clear();
+        reviewName.sendKeys(name);
+        reviewText.clear();
+        reviewText.sendKeys(comment);
+        reviewScore.get(score - 1).click();
+        reviewSubmit.click();
+    }
+
+    @Step("Check success review message")
+    public void checkSuccessReviewMessage() {
+        waitForElementPresent(successMessage);
+        assertThat(successMessage.getText()).isEqualToIgnoringCase("Thank you for your review. It has been submitted to the webmaster for approval.");
+    }
+
+    @Step("Click to compare")
+    public void clickOnCompare() {
+        compare.click();
+    }
+
+    @Step("Check success comparison message for product {0}")
+    public void checkSuccessComparisonMessage(@NotNull String product) {
+        waitForElementPresent(successMessage);
+        assertThat(successMessage.getText()).startsWith("Success: You have added " + product + " to your product comparison!");
+    }
+
+    @Step("User can see product name {0}, price {1}, image and specification")
+    public void userCanSeeProductNamePriceImageAndSpecification(@NotNull String productName, @NotNull String productPrice) {
+        assertThat(name.isDisplayed()).isTrue();
+        assertThat(price.isDisplayed()).isTrue();
+        assertThat(image.isDisplayed()).isTrue();
+        assertThat(specificationTab.isDisplayed()).isTrue();
+        assertThat(reviewTab.isDisplayed()).isTrue();
+        assertThat(addToCard.isDisplayed()).isTrue();
+        assertThat(name.getText()).isEqualTo(productName);
+        assertThat(price.getText()).isEqualTo(productPrice);
     }
 }
