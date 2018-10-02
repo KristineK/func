@@ -20,8 +20,11 @@ and buttons ‘Compare’, “Add to Cart”, “Add to Wish list”
 * User is able to see image, price and specification
 ## Highlights for testing
 
-
 #Tests
-
+### Scenario US15-T01:
  
 #Bugs
+### Bug US15-B01:
+*Steps:* 
+*Actual:* 
+*Expected:*
