@@ -18,13 +18,13 @@ For most required field product use Desktop: Appricot Cinema 30
 
 
 #Tests
-### Scenario US05-T01: Add a product from homepage
+### Scenario US05-T01: Add a product from homepage to cart
 Open homepage
 Click on "Add to Cart" of any of 4 product displayed below carousel
 See that items in cart is updated and price is correctly calculated
 Automated: no
 
-### Scenario US05-T02: Add a product from product page
+### Scenario US15-T01 or US05-T02: Add a product from product page to cart
 Open any product page (e.g. http://demoshop24.com/index.php?route=product/product&product_id=40)
 Click on "Add to Cart" 
 See that items in cart is updated and price is correctly calculated
@@ -50,13 +50,14 @@ See error, like "Incorrect value into the field, should be ..."
 Automated: no
 
 ### Scenario US05-T06: Items out of stock
-Find item out of stock
+Add item out of stock to card (e.g. http://demoshop24.com/index.php?route=product/product&product_id=49&search=Space+Tab+10.1)
+Open cart
 Items out of stock are marked specially marked
 Automated: no
  
 #Bugs
 ### Bug US05-B01: On homepage only first 2 links work
-*Steps:* Execute scenario 1 for 3rd and 4th element
+*Steps:* Execute scenario US05-T01 for 3rd and 4th element
 *Actual:* Product page for 3rd and 4th item is displayed
 *Expected:* Product is added to the card
 
@@ -66,7 +67,7 @@ Automated: no
 *Expected:* Qty is marked as mandatory field
 
 ### Bug US05-B03: No additional check for the field
-*Steps:* Execute scenario 5
+*Steps:* Execute scenario US05-T05
 *Expected:* error is seen
 *Actual:* error is not seen and product is successfully added to the card
 
