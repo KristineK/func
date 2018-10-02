@@ -40,7 +40,7 @@ Automated: no
 2. Write and submit a review for product
 3. See successful message
 
-Automated: no
+Automated: yes
 
 ### Scenario US15-T04: Write and submit a review for product which was NOT purchase
 1. Open any product page, which was not purchased (e.g. http://demoshop24.com/index.php?route=product/product&product_id=40)
@@ -53,7 +53,7 @@ Automated: no
 1. Open any product page (e.g. http://demoshop24.com/index.php?route=product/product&product_id=40)
 2. See that correct information is displayed (image, price, specification, name, description, review, available options and 3 buttons 'Compare', 'Add to Cart' and 'Add to Wish List')
 
-Automated: no
+Automated: yes
 
 ## Bugs
 ### Bug US15-B01: User can add a review without purchase of the product

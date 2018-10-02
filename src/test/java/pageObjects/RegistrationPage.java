@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import java.io.IOException;
 import java.util.Random;
 
+import static helpers.Driver.getDriver;
 import static helpers.Driver.waitForElementPresent;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -66,6 +67,8 @@ public class RegistrationPage {
 
     @Step("Open registartion page")
     public void openRegistrationUrl() throws IOException {
+        // workaround for the login
+        driver.manage().deleteAllCookies();
         driver.get(pageURL);
     }
 
