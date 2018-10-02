@@ -20,35 +20,32 @@ Correct search for short search string – ‘Iph’ return ‘Iphone’, ‘Ip�
 
 ## Tests
 ### Scenario US11-T01: Validate searchbar ir present on homepage
-Execute test: testSearchBarHomepage
-Expected result: search bar is displayed on homepage
-Actual result: search bar is displayed on homepage
-Automated: Yes
+1) Open products homepage
+2) See that search bar is present
 
 ### Scenario US11-T02: Validate that short searching works as supposed 
-Execute test: testSearchForIphFromPCsection
-Expected result: In search results are shown items which contains string in their name "Phone"
-Actual result: In search results are shown items which contains string in their name "Phone"
+1) Open any products page
+2) Input in search box string "Phone"
+3) Click search
+4) See that search results contain products with string "Phone" in their name
 
 
 ### Scenario US11-T04: Validate that search results return product descriptions
-Execute test: testSearchDescription
-Expected result: When user searches product description, items including this product description are returned
-Actual result: As expected results
-Automated: Yes
-
-Note. Not user friendly that if someone wants to search something by description, he needs to first of all check the checkbox for searching in product description
+1) Open products search page
+2) Input search string "Lorem ipsum is a pseudo-Latin"
+3) Check "Search in product descriptions" checkbox
+4) Click search
+5) See that search results contain items with product description "Lorem ipsum is a pseudo-Latin"
 
 
 ### Scenario US11-T05: Validate that search in subcategories return correct results for that subcategory
-Preconditions : user already is on search page
-1) Input in search box String: "Bak"
-2) Select from Categories dropdown box option: "Bak"
-3) Check box "search in subcategories"
-3) Click Search button 
+1) Open any product page
+2) Input in search box String: "Bak"
+3) Select from Categories dropdown box option: "Bak"
+4) Check box "search in subcategories"
+5) Click Search button 
+6) See that search results are correct
 
-Expected result: All items returned which have sub category Bak
-Actual result: All items returned which have sub category Bak
 
 
 

@@ -18,7 +18,28 @@ For out of stock product use product -tablet "Space Tab 10.1"
 
 
 ## Tests
-### Scenario US06-T01:
+### Scenario US06-T01: Validate checkout process for guest user
+1) Go to homepage
+2) Move to "Featured" section and press "Add to cart"
+3) Navigate to "Shoping cart page" and click "Checkout" button
+4) Mark "Guest Checkout" checkbox and press "Continue"
+5) Fill billing details and click "Continue"
+6) At "Deliver Method" step, click "Continue"
+7) At "Payment Methid" step, check "Terms & Conditions" checkbox and click "Continue"
+8) At "Confirm Order" step, click "Confirm Order"
+9) See that Checkout Process is successful
+
+
+### Scenario US06-T02: Validate checkout process for loged in user
+1) Go to homepage
+2) Move to "Featured" section and press "Add to cart"
+3) Navigate to "Shoping cart page" and click "Checkout" button
+4) Mark "Guest Checkout" checkbox and press "Continue"
+6) At "Deliver Method" step, click "Continue"
+7) At "Payment Methid" step, check "Terms & Conditions" checkbox and click "Continue"
+8) At "Confirm Order" step, click "Confirm Order"
+9) See that Checkout Process is successful
+
  
 ## Bugs
 ### Bug US06-B01:
