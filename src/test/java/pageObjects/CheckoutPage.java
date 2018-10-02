@@ -95,7 +95,7 @@ public class CheckoutPage {
         adress1.sendKeys("Some street 22");
         city.sendKeys("Riga");
         paymentZone.click();
-        driver.findElement(By.xpath("//*[@id=\"input-payment-zone\"]/option[129]")).click();
+        paymentZoneCity.click();
         continueButtonForGuest.click();
     }
 
