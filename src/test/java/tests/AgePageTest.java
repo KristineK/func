@@ -39,6 +39,6 @@ public class AgePageTest {
     public static void testAgePageForAdult() throws Exception {
         agePage.openAgeUrl();
         agePage.enterNameAndAgeAndSubmit("Ann", "25");
-        agePage.checkMessageText("Hello, Ann, you are a adult");
+        agePage.checkMessageText("Hello, Ann, you are an adult");
     }
 }
