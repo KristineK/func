@@ -1,9 +1,11 @@
 package tests;
+
 import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import pageObjects.RegistrationPage;
+
 import static helpers.Driver.getDriver;
 
 public class RegistrationPageTests {
@@ -27,6 +29,7 @@ public class RegistrationPageTests {
         registrationPage.verifyUserAreRegister("Congratulations! Your new account has been successfully created!");
 
     }
+
     @Test(description = "User Registartion fields", priority = 1)
     @Description("Test Description: Check Radio button subscribe by default No")
     public static void testRadioButton() throws Exception {

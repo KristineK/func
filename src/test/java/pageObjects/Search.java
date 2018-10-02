@@ -12,6 +12,10 @@ import java.io.IOException;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+<<<<<<<HEAD
+        =======
+        >>>>>>>17089e7118087ab43d7ac40951db9e9c1eaec34c
+
 public class Search {
     public String pageURL;
     protected WebDriver driver;
@@ -28,7 +32,10 @@ public class Search {
     private WebElement primarySearchButton;
     @FindBy(how = How.ID, using = "input-search")
     private WebElement criteriaSearchBox;
-
+    @FindBy(how = How.CLASS_NAME, using = "form-control")
+    private WebElement categoriesSection;
+    @FindBy(how = How.NAME, using = "sub_category")
+    private WebElement subCategoryCheckBox;
 
     public Search() throws Exception {
         pageURL = System.getProperty("baseUrl");
@@ -63,7 +70,7 @@ public class Search {
         primarySearchButton.click();
     }
 
-    @Step("Validate search results text: {0}")
+    @Step("Validate search results contain: {0}")
     public void validateSearchResults(@NotNull String searchedString) {
         String firstSearchResult = driver.findElement(By.xpath("//*[@id=\"content\"]/div[3]/div/div/div[2]/div[1]/h4/a")).getText();
         assertThat(firstSearchResult.contains(searchedString));
@@ -82,6 +89,20 @@ public class Search {
     @Step("Product description contains searched string: {0}")
     public void productDescriptionContainsSearchedString(@NotNull String searchedString) {
         assertThat(productGrid.getText().contains(searchedString));
+    }
+
+    @Step("Select sub category: {0}")
+    public void subCategorySelection(@NotNull String subCategory) throws InterruptedException {
+        categoriesSection.click();
+        categoriesSection.
+                wait(1000);
+
+//        //*[@id="content"]/div[1]/div[2]/select/option[11]
+    }
+
+    @Step("Click subcategories checkbox")
+    public void clickSubCategoriesCheckBox() {
+        subCategoryCheckBox.click();
     }
 
 

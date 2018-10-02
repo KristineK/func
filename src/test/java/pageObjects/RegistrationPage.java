@@ -1,6 +1,5 @@
 package pageObjects;
 
-import helpers.Driver;
 import io.qameta.allure.Step;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Random;
 
 import static helpers.Driver.waitForElementPresent;
@@ -49,7 +47,6 @@ public class RegistrationPage {
     private WebElement LogOutBtn;
 
 
-
     public RegistrationPage() throws Exception {
         pageURL = System.getProperty("baseUrl") + "/index.php?route=account/register";
     }
@@ -58,7 +55,7 @@ public class RegistrationPage {
         driver = driverValue;
     }
 
-    @Step("Open registartion page")
+    @Step("Open registration page")
     public void openRegistrationUrl() throws IOException {
         driver.get(pageURL);
     }
@@ -70,7 +67,7 @@ public class RegistrationPage {
                                               @NotNull String passwordValue) {
         Random random = new Random();
         int x = random.nextInt(26);
-        String randomemail =  "admin" + random  + "asd.com";
+        String randomemail = "admin" + random + "asd.com";
 
         firstName.sendKeys(firstnameValue);
         lastName.sendKeys(lastameValue);
@@ -79,21 +76,25 @@ public class RegistrationPage {
         password.sendKeys(passwordValue);
         confirmPassword.sendKeys(passwordValue);
     }
+
     @Step("No subscription is selected")
     public void checkNoSubscribeSelected() {
         assertThat(NoSubscribeRadioButton.isSelected()).as("No subscription isn't selected").isTrue();
         assertThat(YesSubscribeRadioButton.isSelected()).as("Yes subscription isn't selected").isFalse();
     }
-    @Step("Verify privacy policy text and agree")
+
+    @Step("Verify privacy policy text and agree: {0}")
     public void agreePrivacyPolicy(@NotNull String messageText) {
         assertThat(PrivacyPolicyAgreeText.getText().compareToIgnoreCase(messageText));
         PrivacyPolicyAgree.click();
 
     }
+
     @Step("Press Continue")
     public void pressContinueBtn() {
         ContinueBtn.click();
     }
+
     @Step("Verify user are register")
     public void verifyUserAreRegister(@NotNull String congratulationsText) {
         waitForElementPresent(CongratulationsMsgText);
@@ -104,7 +105,6 @@ public class RegistrationPage {
     public void logOut(@NotNull String congratulationsText) {
         MyAccountDropDown.click();
         LogOutBtn.click();
-        
 
 
     }
