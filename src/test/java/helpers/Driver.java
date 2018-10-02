@@ -76,11 +76,11 @@ public class Driver implements WebDriver {
      *            - locator of element you wish to search for
      *
      */
-    public void waitForElementPresent(By by) {
+    public static void waitForElementPresent(By by) {
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    public void waitForElementPresent(WebElement element) {
+    public static void waitForElementPresent(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
