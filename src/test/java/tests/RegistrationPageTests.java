@@ -1,14 +1,18 @@
 package tests;
+import helpers.TestListener;
 import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjects.RegistrationPage;
 
 import java.util.Random;
 
 import static helpers.Driver.getDriver;
-
+@Feature("Registration Test")
+@Listeners({ TestListener.class })
 public class RegistrationPageTests {
 
     private WebDriver driver;
@@ -20,32 +24,31 @@ public class RegistrationPageTests {
         registrationPage.setDriver(driver);
     }
 
-    @Test(description = "User Registartion", priority = 1)
-    @Description("Test Description: Register a user")
-    public static void testUserRegistration() throws Exception {
-        Random random = new Random();
-        int x = random.nextInt(26);
-        String randomemail =  "admin" + random  + "asd.com";
-        registrationPage.openRegistrationUrl();
-        registrationPage.fillRegistrationFormAndSubmit("FirstName", "LastName", "1111", "password",randomemail);
-        registrationPage.agreePrivacyPolicy("I have read and agree to the ");
-        registrationPage.pressContinueBtn();
-        registrationPage.verifyUserAreRegister("Congratulations! Your new account has been successfully created!");
-
-    }
-
-    @Test(description = "User Registartion fields", priority = 1)
+    @Test(description = "User Registration fields", priority = 1)
     @Description("Test Description: Check Radio button subscribe by default No")
     public static void testRadioButton() throws Exception {
         registrationPage.openRegistrationUrl();
         registrationPage.checkNoSubscribeSelected();
     }
 
+    @Test(description = "User Registration", priority = 1)
+    @Description("Test Description: Register a user")
+    public static void testUserRegistration() throws Exception {
+        Random random = new Random();
+        int x = random.nextInt(100)+100;
+        String randomemail =  "admin" + x  + "@asd.com";
+        registrationPage.openRegistrationUrl();
+        registrationPage.fillRegistrationFormAndSubmit("FirstName", "LastName", "1111", "password",randomemail);
+        registrationPage.agreePrivacyPolicy("I have read and agree to the ");
+        registrationPage.pressContinueBtn();
+        registrationPage.verifyUserAreRegister("Congratulations! Your new account has been successfully created!");
+    }
+
     @Test(description = "After registration user are able to login", priority = 1)
     @Description("Test Description: After registration login to system")
     public static void loginToSystem() throws Exception {
         Random random = new Random();
-        int x = random.nextInt(100);
+        int x = random.nextInt(100)+100;
         String randomemail =  "admin" + x  + "@asd.com";
         String password ="password";
         String firstName ="FirstName";
@@ -73,9 +76,7 @@ public class RegistrationPageTests {
         registrationPage.fillRegistrationFormAndSubmit(firstName, lastName, telephone, password, email);
         registrationPage.agreePrivacyPolicy("I have read and agree to the ");
         registrationPage.pressContinueBtn();
-
     }
-
 
 
 }
