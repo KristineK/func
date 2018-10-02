@@ -16,6 +16,7 @@ public class ShoppingCart {
     public ShoppingCart() throws Exception {
         pageURL = System.getProperty("baseUrl");
     }
+
     public void setDriver(WebDriver driverValue) {
         driver = driverValue;
     }

@@ -8,9 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import java.io.IOException;
-import java.util.Random;
 
-import static helpers.Driver.getDriver;
 import static helpers.Driver.waitForElementPresent;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -56,7 +54,6 @@ public class RegistrationPage {
     private WebElement editAccountBtn;
 
 
-
     public RegistrationPage() throws Exception {
         pageURL = System.getProperty("baseUrl") + "/index.php?route=account/register";
     }
@@ -77,8 +74,6 @@ public class RegistrationPage {
                                               @NotNull String lastameValue,
                                               @NotNull String telephoneValue,
                                               @NotNull String passwordValue, @NotNull String emailValue) {
-
-
         firstName.sendKeys(firstnameValue);
         lastName.sendKeys(lastameValue);
         email.sendKeys(emailValue);
@@ -86,21 +81,24 @@ public class RegistrationPage {
         password.sendKeys(passwordValue);
         confirmPassword.sendKeys(passwordValue);
     }
+
     @Step("No subscription is selected")
     public void checkNoSubscribeSelected() {
         assertThat(NoSubscribeRadioButton.isSelected()).as("No subscription isn't selected").isTrue();
         assertThat(YesSubscribeRadioButton.isSelected()).as("Yes subscription isn't selected").isFalse();
     }
+
     @Step("Verify privacy policy text and agree")
     public void agreePrivacyPolicy(@NotNull String messageText) {
         assertThat(PrivacyPolicyAgreeText.getText().compareToIgnoreCase(messageText));
         PrivacyPolicyAgree.click();
-
     }
+
     @Step("Press Continue")
     public void pressContinueBtn() {
         ContinueBtn.click();
     }
+
     @Step("Verify user are register")
     public void verifyUserAreRegister(@NotNull String congratulationsText) {
         waitForElementPresent(CongratulationsMsgText);
@@ -122,11 +120,13 @@ public class RegistrationPage {
         password.sendKeys(passwordValue);
         logInBtn.click();
     }
+
     @Step("select edit account")
     public void selectEditAccount() {
         editAccountBtn.click();
 
     }
+
     @Step("verify account details")
     public void verifyAccountDetails(@NotNull String firstnameValue,
                                      @NotNull String lastameValue,
@@ -146,7 +146,6 @@ public class RegistrationPage {
     public void verifyAccountDetails() {
         assertThat(CongratulationsMsgText.isEnabled()).isFalse();
     }
-
 
 
 }

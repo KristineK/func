@@ -1,4 +1,5 @@
 package tests;
+
 import helpers.TestListener;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -11,8 +12,9 @@ import pageObjects.RegistrationPage;
 import java.util.Random;
 
 import static helpers.Driver.getDriver;
+
 @Feature("Registration Test")
-@Listeners({ TestListener.class })
+@Listeners({TestListener.class})
 public class RegistrationPageTests {
 
     private WebDriver driver;
@@ -35,10 +37,10 @@ public class RegistrationPageTests {
     @Description("Test Description: Register a user")
     public static void testUserRegistration() throws Exception {
         Random random = new Random();
-        int x = random.nextInt(100)+100;
-        String randomemail =  "admin" + x  + "@asd.com";
+        int x = random.nextInt(100) + 100;
+        String randomemail = "admin" + x + "@asd.com";
         registrationPage.openRegistrationUrl();
-        registrationPage.fillRegistrationFormAndSubmit("FirstName", "LastName", "1111", "password",randomemail);
+        registrationPage.fillRegistrationFormAndSubmit("FirstName", "LastName", "1111", "password", randomemail);
         registrationPage.agreePrivacyPolicy("I have read and agree to the ");
         registrationPage.pressContinueBtn();
         registrationPage.verifyUserAreRegister("Congratulations! Your new account has been successfully created!");
@@ -48,11 +50,11 @@ public class RegistrationPageTests {
     @Description("Test Description: After registration login to system")
     public static void loginToSystem() throws Exception {
         Random random = new Random();
-        int x = random.nextInt(100)+100;
-        String randomemail =  "admin" + x  + "@asd.com";
-        String password ="password";
-        String firstName ="FirstName";
-        String lastName ="LastName";
+        int x = random.nextInt(100) + 100;
+        String randomemail = "admin" + x + "@asd.com";
+        String password = "password";
+        String firstName = "FirstName";
+        String lastName = "LastName";
         String telephone = "1111";
         registrationPage.openRegistrationUrl();
         registrationPage.fillRegistrationFormAndSubmit(firstName, lastName, telephone, password, randomemail);
@@ -61,16 +63,16 @@ public class RegistrationPageTests {
         registrationPage.logOut("You have been logged off your account. It is now safe to leave the computer.");
         registrationPage.logIn(randomemail, password);
         registrationPage.selectEditAccount();
-        registrationPage.verifyAccountDetails(firstName, lastName, randomemail, telephone );
+        registrationPage.verifyAccountDetails(firstName, lastName, randomemail, telephone);
     }
 
     @Test(description = "Verify email validation", priority = 1)
     @Description("Verify email validation error message")
     public static void emailValidation() throws Exception {
         String email = "email";
-        String password ="password";
-        String firstName ="FirstName";
-        String lastName ="LastName";
+        String password = "password";
+        String firstName = "FirstName";
+        String lastName = "LastName";
         String telephone = "1111";
         registrationPage.openRegistrationUrl();
         registrationPage.fillRegistrationFormAndSubmit(firstName, lastName, telephone, password, email);

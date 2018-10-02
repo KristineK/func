@@ -59,7 +59,7 @@ public class ProductPage {
 
     @Step("Open browse page for product {0} in category {1}")
     public void openProductPageInCategory(@NotNull String product, @NotNull String aCategory) throws IOException {
-        driver.get(pageURL + "&path=" + categoriesSubCategoriesAndProducts.getCategoryValue(aCategory)+ "&product_id=" + categoriesSubCategoriesAndProducts.getProductValue(product));
+        driver.get(pageURL + "&path=" + categoriesSubCategoriesAndProducts.getCategoryValue(aCategory) + "&product_id=" + categoriesSubCategoriesAndProducts.getProductValue(product));
     }
 
     @Step("Open browse page product {0} in category {1} with sub-category {2}")

@@ -19,7 +19,7 @@ import java.util.*;
 import static org.assertj.core.api.Fail.fail;
 
 public class Driver implements WebDriver {
-	
+
     private static WebDriver driver;
     private final static WebDriverWait wait;
 
@@ -27,11 +27,11 @@ public class Driver implements WebDriver {
     private final LinkedHashMap<String, String> temporaryValuesSavedOrder = new LinkedHashMap<String, String>();
 
     final static Logger logger = Logger.getLogger(Driver.class);
-//    private static final Logger logger = LoggerFactory.getLogger(Driver.class);
+    //    private static final Logger logger = LoggerFactory.getLogger(Driver.class);
     public static String currentEnv = System.getProperty("spring.profiles.active");
 
     public Driver() {
-        
+
     }
 
     public static WebDriver getDriver() {
@@ -41,23 +41,20 @@ public class Driver implements WebDriver {
     static {
         ChromeOptions myOptions = new ChromeOptions();
         myOptions.addArguments("--disable-infobars");
-	    driver = new ChromeDriver(myOptions);
-		driver.manage().window().maximize();
+        driver = new ChromeDriver(myOptions);
+        driver.manage().window().maximize();
 //		logger.info("This is a test");
-		
+
         wait = (WebDriverWait) new WebDriverWait(driver, 10).ignoring(StaleElementReferenceException.class);
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
                 driver.quit();
             }
         }, "Shutdown-thread"));
-	}
+    }
 
     /**
-     *
-     * @param by
-     *            - locator of element you wish to search for
-     *
+     * @param by - locator of element you wish to search for
      */
     public static void waitForElementPresent(By by) {
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
@@ -108,11 +105,8 @@ public class Driver implements WebDriver {
     }
 
     /**
-     *
-     * @param by
-     *            - locator of element you wish to search for
+     * @param by - locator of element you wish to search for
      * @return true if element is present, displayed, one of many with the same by and enabled false if not
-     *
      */
     public boolean isElementPresent(By by) {
         if (driver.findElements(by).size() > 0) {
@@ -136,15 +130,10 @@ public class Driver implements WebDriver {
     }
 
     /**
-     *
      * Temporary properties will allow data to be passed between steps or even scenarios
      *
-     * @param key
-     *            - Identifier for the value being added
-     * @param value
-     *            - value you wish to store
-     *
-     *
+     * @param key   - Identifier for the value being added
+     * @param value - value you wish to store
      */
     public void addTemporaryProperty(String key, String value) {
         temporaryValues.put(key, value);

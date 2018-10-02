@@ -2,7 +2,6 @@ package tests;
 
 import helpers.TestListener;
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -14,7 +13,7 @@ import pageObjects.ProductPage;
 import static helpers.Driver.getDriver;
 
 @Feature("Product Test")
-@Listeners({ TestListener.class })
+@Listeners({TestListener.class})
 public class ProductTest {
 
     private WebDriver driver;

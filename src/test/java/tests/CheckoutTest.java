@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjects.CheckoutPage;
-import pageObjects.Search;
 
 import static helpers.Driver.getDriver;
 

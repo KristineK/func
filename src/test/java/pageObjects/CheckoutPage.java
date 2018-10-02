@@ -46,7 +46,6 @@ public class CheckoutPage {
     private WebElement agreeCheckBox;
 
 
-
     public CheckoutPage() throws Exception {
         pageURL = System.getProperty("baseUrl") + "/index.php?route=checkout/cart";
     }
